@@ -14,9 +14,9 @@ console.log(transform(b, 2));
 //左移动 position='l'
 //右移动 position='r'
 const shift = (value, step, position) => {
- if (position !== "l" || position !== "r") {
-  throw new Error('please enter valid position. It is either "l" or "r"');
- }
+ if(!['l','r'].includes(position)){
+	 throw new Error('please enter valid position. It is either "l" or "r"');
+}
  const stringValue = value.toString();
  const transformedArray = stringValue.split("");
  for (let i = 0; i < parseInt(step, 10); i++) {
