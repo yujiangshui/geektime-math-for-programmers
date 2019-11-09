@@ -1,5 +1,7 @@
 ## 十进制 二进制区别
 
+- '1100101'转换为 10 进制的数字为 53, parseInt(value,2),只有 1 和 0 组成的才可以用 parseInt(value,2),53 的二进制就是 110101
+
 ```javascript
 //transform
 const transform = (value, base) => {
