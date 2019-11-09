@@ -8,7 +8,7 @@ var str = '101011'
 var initial = Math.pow(2,5) + Math.pow(2,3) + Math.pow(2,1) + 1;
 var leftShift = Math.pow(2,6) + Math.pow(2,4) + Math.pow(2,2) + Math.pow(2,1);
 var rightShift = Math.pow(2,4) + Math.pow(2,2) + Math.pow(2,0)
-console.log(initial, left, right); //43 86 21
+console.log(initial, leftShift, rightShift); //43 86 21
 ```
 
 ### 思考题-10进制转2进制
