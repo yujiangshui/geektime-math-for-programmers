@@ -3,8 +3,8 @@ const dictionary = ['geek', 'geometry', 'abc', 'abd'];
 function buildTree(dict) {
   let tree = [];
   let pointer = tree;
-  for (let i = 0; i < dictionary.length; i++) {
-    const word = dictionary[i];
+  for (let i = 0; i < dict.length; i++) {
+    const word = dict[i];
     for (let j = 0; j < word.length; j++) {
       const currentChar = word[j];
       const existItem = pointer.find(item => item.char === currentChar);
@@ -48,6 +48,7 @@ function searchTree(tree, word) {
   }
   // 当前 word 没了，叶子结点还有，查看是否是一个单词，例如词典：abc, abcd search abc
   // ？？如何判断是否是一个合法单词？?
+  // Update: see 12 implementation, use isWordEnd
   if (wordChars.length === 0) {
     // todo if word is a valid word, then return true else false
   }
