@@ -42,12 +42,3 @@ function buildTree(dict) {
 
 const dictTree = buildTree(dictionary);
 console.log('dictTree: ', JSON.stringify(dictTree));
-
-// // search dict tree with stack
-// function searchTree(tree, word) {
-//   let stack = [];
-//   stack = stack.concat(tree);
-//   while (stack.length === 0) {}
-// }
-
-// console.log(searchTree(dictTree, 'abc'));
