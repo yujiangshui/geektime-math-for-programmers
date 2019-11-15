@@ -36,6 +36,23 @@ console.log(total(63)) // 9223372036854776000
 
 ```
 
+#### js知识点
+JS的基础类型Number，遵循 IEEE 754 规范，采用双精度存储（double precision），占用 64 bit
+```asm
+s eeeeeee eeee ffff ffffffff ffffffff ffffffff ffffffff ffffffff ffffffff
+```
+意义
+* 1位用来表示符号位
+* 11位用来表示指数
+* 52位表示尾数
+
+浮点数，比如
+```asm
+0.1 >> 0.0001 1001 1001 1001…（1001无限循环）
+0.2 >> 0.0011 0011 0011 0011…（0011无限循环）
+```
+
+
 #### 迭代法有什么具体应用？
 
 * 求数值的精确或者近似解。典型的方法包括二分法（Bisection method）和牛顿迭代法（Newton’s method）。
