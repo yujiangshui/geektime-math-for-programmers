@@ -10,4 +10,6 @@
 
 如果想买的可以扫码，你懂的
 
-<img src="./qrcode.jpeg" width="400 />
+<div align="center">
+  <img src="https://github.com/yujiangshui/geektime-math-for-programmers/blob/master/qrcode.jpeg?raw=true" width="400" />
+</div>
