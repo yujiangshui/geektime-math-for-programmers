@@ -4,16 +4,9 @@
  * 求用钱币组合固定金额的所有情况
  */
 
-const items = [1, 2, 5, 10];
-
-// 迭代法
-function iteration(sum: number,) {
-  const results = [];
-  // 放弃
-}
 
 // 递归法
-function recursion(count: number = 10) {
+function recursion(count: number = 10, coins: number[]) {
   const results = [];
 
   function money (remaining: number = -1, used =[]) {
@@ -25,7 +18,7 @@ function recursion(count: number = 10) {
       return;
     }
 
-    items.forEach((item) => {
+    coins.forEach((item) => {
       money(remaining - item, [...used, item]);
     });
   }
@@ -34,5 +27,7 @@ function recursion(count: number = 10) {
   return results;
 }
 
-const results = recursion(7);
+const coins = [1, 2, 5, 10];
+
+const results = recursion(7, coins);
 console.log(results);
