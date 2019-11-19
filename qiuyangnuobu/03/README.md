@@ -1,10 +1,13 @@
+## 迭代法：不用编程语言的自带函数，你会如何计算平方根？
+
 ### 迭代法（Iterative Method）
 
 迭代法，简单来说，其实就是不断地用旧的变量值，递推计算新的变量值。
 古印度国王舍罕酷重赏国际象棋的发明人宰相西萨·班·达依尔的故事
 
     (function getNumberOfWheat(grid) {
-        let num = 1, sum = num
+        let num = 1
+        let sum = 1
         console.log(`第1个格子:${num}粒米,当前总共:${sum}`)
         for (let i = 1; i < grid; i++) {
             num *= 2
