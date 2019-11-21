@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        (function getNumberOfWheat(grid) {
+            let num = 1
+            let sum = 1
+            console.log(`第1个格子:${num}粒米,当前总共:${sum}`)
+            for (let i = 1; i < grid; i++) {
+                num *= 2
+                sum += num
+                console.log(`第${i+1}个格子:${num}粒米,当前总共:${sum}`)
+            }
+            console.log(`最终：${sum}粒米`)
+        })(55)
+    </script>
+</body>
+
+</html>
