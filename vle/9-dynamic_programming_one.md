@@ -29,6 +29,7 @@
 在相同位置上两个字符串不同:cost=1；反则为0
 matrix[m][n]=Math.min(matrix[m-1][n]+1,matrix[m][n-1]+1,matrix[m-1][n-1]+cost)
 ````
+其中matrix```[m-1][n]+1```代表删除操作，```matrix[m][n-1]+1```代表新增，```matrix[m-1][n-1]+cost```代表字符的替换，然后求出他们三个值的最小值
 ````asm
 export const mindis = (s1: string, s2: string) => {
     const len1 = s1.length;
