@@ -6,23 +6,22 @@
 > 案例计算总额为100，给定【2，3，7】面额的纸币，求出最小数量纸币的组合（这是一个最优解）
 >> 思路的话
 - 先列出 金额为  1-5的组合 及其最小的数量   c(2) c(3) c(i) 为总额为i的时候，所需钱币的最小数量，一旦说到做小，那么就是需要比较取最小值
-- 通过列出的图标 可以总结出一个 动态规划方程 v[j] 为钱币种类的某一个面值 c(i) = c(i - v[j]) + 1
+- 通过列出的图标 可以总结出一个 动态规划方程 v[j] 为钱币种类的某一个面值 c(i) = c(i - v[j]) + 1 [看图](https://static001.geekbang.org/resource/image/e7/58/e78354fe2f577d07649882fed69bd358.png)
 - 得出结果呢 ，就是要在在一个金额的时候得出一个最小的值，在此基础上求取下一个金额的最小值
-> 循环
+> 循环 重点是判断条件，将所有的不可能的组合事先规避掉，counts取值为0，在的判断最小counts的时候去除为0的值，再取最小值
 
 
-      function countMin(total, currency) {
-        let totalArr = new Array(total).fill(0);
+       function countMin(total, currency) {
+        let totalArr = new Array(total+1).fill(0);
         let tempCounts = new Array(currency.length).fill(0);
-        for (let i=0; i < totalArr.length; i++) {
+        for (let i=1; i < totalArr.length; i++) {
           for (let j=0; j < currency.length; j++) {
             if(i - currency[j] >= 0) {
               // 总额大于当前钱币的面值的情况下，去修改 对应的钱币的数量，因为是从小到大，所以肯定数量会从1开始
-              tempCounts[j] = totalArr[i - currency[j]] + 1;
+              tempCounts[j] = 
+              (i - currency[j] === 0 || i - currency[j] >= Math.min(...currency))
+              ? totalArr[i - currency[j]] + 1 : 0;
               // 为什么每次都+1呢， totalArr[i - currency[j]]代表的是上一个金额总和所需钱币的数量，+当前面值 （1张）
-            }
-            if(tempCounts[j] === 0) {
-              m++;
             }
           }
           // 在tempCounts中0的组合是不存在的，比大小的时候要排除掉
@@ -44,8 +43,4 @@
       return totalArr[totalArr.length - 1]
     }
 
-
-> 递归
-
-    function recursion() {}
   
