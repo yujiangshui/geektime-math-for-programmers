@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+
+        let arr = [1, 2, 3, 4];
+
+        function noRepeat(array) {
+            let permArr = [], usedChars = [];
+            function main(array) {
+                let i, ch;
+                for (i = 0; i < array.length; i++) {
+                    ch = array.splice(i, 1)[0];
+                    usedChars.push(ch);
+                    if (array.length == 0) {
+                        permArr.push(usedChars.slice());
+                    }
+                    main(array);
+                    array.splice(i, 0, ch);
+                    usedChars.pop();
+                }
+                return permArr
+            }
+            return main(array);
+        }
+
+        function repeat(array) {
+            const result = []
+                ; (function f(array, num, list = []) {
+                    if (num == 0) {
+                        return result.push(list)
+                    } else {
+                        for (let i = 0; i < array.length; i++) {
+                            f(array, num - 1, list.concat([array[i]]))
+                        }
+                    }
+                })(array, array.length)
+            return result
+        }
+
+        console.log(repeat(arr))
+        console.log(noRepeat(arr))
+    </script>
+</body>
+
+</html>
