@@ -14,4 +14,4 @@
 
 Q: 假设有一个 4 位字母密码，每位密码是 a～e 之间的小写字母。你能否编写一段代码，来暴力破解该密码？（提示：根据可重复排列的规律，生成所有可能的 4 位密码。）
 
-A: 最好的情况：1次破解， 最坏的情况： 625次破解。时间复杂度：n^4; [答案链接](https://github.com/yujiangshui/geektime-math-for-programmers/blob/master/zhangdazui/07/example.js);
+A: 最好的情况：1次破解， 最坏的情况： 625次破解。时间复杂度：O(n^4); [答案链接](https://github.com/yujiangshui/geektime-math-for-programmers/blob/master/zhangdazui/07/example.js);
