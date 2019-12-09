@@ -17,21 +17,9 @@ const data = [
   }
 ]
 
-// 深度遍历, 使用递归
-function getName(data) {
-  const result = [];
-  data.forEach(item => {
-      const map = data => {
-          result.push(data.name);
-          data.children && data.children.forEach(child => map(child));
-      }
-      map(item);
-  })
-  return result.join(',');
-}
 
-// 广度遍历, 创建一个执行队列, 当队列为空的时候则结束
-function getName2(data) {
+// 广度遍历, 输出所有元素
+function getName(data) {
   let result = [];
   let queue = data;
   while (queue.length > 0) {
@@ -44,6 +32,6 @@ function getName2(data) {
   return result.join(',');
 }
 
-console.log(getName(data))
-console.log(getName2(data))
+cgetName(data);
+// 思考如何广度遍历指定维度的元素，比如说找出你的所有的几度关系的朋友 
 
