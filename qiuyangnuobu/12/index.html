@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        const dictionary = ['a','geekOver', 'diy', 'tree', 'dictionary', 'geekTime', 'china'];
+
+        class TreeNode {
+            constructor(char, isOver = false, children = []) {
+                if (char) {
+                    this.char = char;
+                }
+                if(!isOver){
+                    this.children = children;
+                }
+                this.isOver = isOver;
+            }
+        }
+        
+        function generateTree(dict) {
+            const tree = new TreeNode('');
+            let pointer = tree.children;
+            let i = 0
+            while (i < dict.length) {
+                const theDict = dict[i];
+                let j = 0
+                while (j < theDict.length) {
+                    const current = theDict[j];
+                    const existing = pointer.find(item => item.char === current);
+                    if (existing) {
+                        pointer = existing.children;
+                    } else {
+                        const newTreeNode =
+                            j === theDict.length - 1
+                                ? new TreeNode(current, true)
+                                : new TreeNode(current);
+                        pointer.push(newTreeNode);
+                        pointer = newTreeNode.children;
+                    }
+                    j++
+                }
+                pointer = tree.children;
+                i++
+            }
+            return tree;
+        }
+
+        console.log('dictTree: ', generateTree(dictionary));
+    </script>
+</body>
+
+</html>

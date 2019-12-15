@@ -27,19 +27,16 @@ function buildTree(dict) {
 
 function searchTree(tree, word) {
     let pointer = tree;
-    let isSave = false;
     let j = 0;
     for (let i = 0; i < word.length; i++) {
         j = 0;
-        isSave = false;
         const currentChar = word[i];
         for (; j < pointer.length; j++) {
             if (pointer[j].char === word[i]) {
-                isSave = true;
                 break;
             }
         }
-        if (!isSave) {
+        if (j === pointer.length) {
             return false;
         }
         if (pointer[j].children.length === 0 && i < word.length - 1) {
