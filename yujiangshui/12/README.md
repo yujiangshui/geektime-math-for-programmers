@@ -11,10 +11,62 @@
 
 因此模仿链表结构更适合表达树。
 
+## 简单的实现方式（伪代码）
+
+节点：
+
+```
+class TreeNode {
+  label: string;
+  sons: TreeNode[];
+  prefix: string;
+
+  constructor(label, prefix) {
+    this.label = label;
+    this.prefix = prefix;
+    this.son = [];
+  }
+}
+```
+
+其中 prefix 表示边，即父节点。
+
+创建一个链：
+
+```
+key = 'value';
+node;
+root = new TreeNode('root', null)
+
+node = root.sons.find(son => son.label === key)
+if (!node) {
+  son = new TreeNode(key, root);
+  root.sons.push(son);
+  node = son;
+}
+```
+
+遍历一个链（栈）：
+
+```
+stack = [];
+stack.push(root);
+
+while (!stack.length) {
+  node = stack.pop();
+  // ...
+  stack.push(...)
+}
+```
+
 ## 什么样的编程方式可以实现对树结点和边的操作？
 
 - 递归：查找比较合适，但是会缓存大量中间变量，消耗大量内存
-- 栈：遍历比较合适。
+- 栈：遍历比较合适
+
+### 栈的特点
+
+First In Last Out
 
 ### 用栈遍历
 
@@ -23,6 +75,10 @@
    1. 如果结点有 children 说明没到叶子结点，将子结点压栈
    2. 如果结点没有 children 说明到达叶子结点，进行数据处理或者匹配，当前分支结束
 3. 栈清空，结束
+
+### 栈的应用
+
+栈先进后出的特性，可以模拟函数的递归调用。在计算机系统里面的函数递归，内部也是通过栈来实现的。
 
 ## 其他
 
